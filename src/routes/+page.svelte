@@ -70,8 +70,14 @@
 <div class=main>
 	<h1 >FFD Decoder</h1>
 	<p style="margin-bottom:40px; margin-top:-20px">Input only the letters in the code</p>
-	<input bind:value={input}>
-	<button on:click={updateCode} >Enter</button>
+	<div style="display: flex; align-items: center; justify-content: center; gap: 5px">
+		<input style="font-family: space grotesk; width: 4rem; font-size:15px; height: 30px; border-radius:20px 10px 10px 20px; padding-left: 10px; border: 2px solid" bind:value={input}>
+		
+		<button style="display: flex; justify-content: center; align-items: center; cursor: pointer; padding: 0px; background-color: transparent; font-family: space grotesk; width: 40px; font-size:15px ;height: 36px; border-radius:10px 20px 20px 10px; border: 2px solid" on:click={updateCode}>
+			<span class="material-symbols-rounded">play_arrow</span>
+		</button>
+	</div>
+
 	<p class={state}>{result}</p>
 	<p style="margin-top: 50px"><i>For g, it can be either 0 or 3: the one with the lower numbers around it is 0, and the other one is 3</i></p>
 	<p style="margin-top: 50px; margin-bottom:0px; opacity:0.5"><i>DM bugs/questions to @sirwaffles</i></p>
