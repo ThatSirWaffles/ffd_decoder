@@ -37,8 +37,10 @@
 	let input = "";
 	let state = "output";
 
-	function ord(char: string): number {
-		return char.charCodeAt(0)-97;
+	function handleKeyDown(event: KeyboardEvent) {
+		if (event.key === "Enter") {
+			updateCode();
+		}
 	}
 
 	function updateCode() {
@@ -71,7 +73,7 @@
 	<h1 >FFD Decoder</h1>
 	<p style="margin-bottom:40px; margin-top:-20px">Input only the letters in the code</p>
 	<div style="display: flex; align-items: center; justify-content: center; gap: 5px">
-		<input style="font-family: space grotesk; width: 4rem; font-size:15px; height: 30px; border-radius:20px 10px 10px 20px; padding-left: 10px; border: 2px solid" bind:value={input}>
+		<input style="font-family: space grotesk; width: 4rem; font-size:15px; height: 30px; border-radius:20px 10px 10px 20px; padding-left: 10px; border: 2px solid" bind:value={input} on:keydown={handleKeyDown}>
 		
 		<button style="display: flex; justify-content: center; align-items: center; cursor: pointer; padding: 0px; background-color: transparent; font-family: space grotesk; width: 40px; font-size:15px ;height: 36px; border-radius:10px 20px 20px 10px; border: 2px solid" on:click={updateCode}>
 			<span class="material-symbols-rounded">play_arrow</span>
