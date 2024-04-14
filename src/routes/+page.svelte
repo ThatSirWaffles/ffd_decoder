@@ -4,7 +4,6 @@
 	align-items: center;
 	flex-direction: column;
 	padding: 20px;
-	border: 2px solid #000;
 	width: 20rem;
 	position: absolute;
 	top: 50%;
@@ -13,16 +12,21 @@
 	text-align:center;
 	font-family: space grotesk;
 	border-radius: 10px;
+	background-color: #ffffff21;
+	backdrop-filter: blur(10px);
+	color: #fff;
+	box-shadow: 0 10px 50px rgb(0 0 0 / 0.5);
+	border: 1px solid #ffffff21
 	}
 
 	.success {
-		color: #38bf2e;
+		color: #34e028;
 		opacity: 1;
 		transition: 0.5s;
 	}
 
 	.error {
-		color: #bf2e2e;
+		color: #e42525;
 		opacity: 1;
 		transition: 0.5s;
 	}
@@ -73,10 +77,10 @@
 	<h1 >FFD Decoder</h1>
 	<p style="margin-bottom:40px; margin-top:-20px">Input only the letters in the code</p>
 	<div style="display: flex; align-items: center; justify-content: center; gap: 5px">
-		<input style="font-family: space grotesk; width: 4rem; font-size:15px; height: 30px; border-radius:20px 10px 10px 20px; padding-left: 10px; border: 2px solid" bind:value={input} on:keydown={handleKeyDown}>
+		<input style="color: #fff; background-color: transparent; font-family: space grotesk; width: 4rem; font-size:15px; height: 30px; border-radius:20px 10px 10px 20px; padding-left: 10px; border: 1px solid #fff" bind:value={input} on:keydown={handleKeyDown}>
 		
-		<button style="display: flex; justify-content: center; align-items: center; cursor: pointer; padding: 0px; background-color: transparent; font-family: space grotesk; width: 40px; font-size:15px ;height: 36px; border-radius:10px 20px 20px 10px; border: 2px solid" on:click={updateCode}>
-			<span class="material-symbols-rounded">play_arrow</span>
+		<button style="display: flex; justify-content: center; align-items: center; cursor: pointer; padding: 0px; background-color: transparent; font-family: space grotesk; width: 40px; font-size:15px ;height: 36px; border-radius:10px 20px 20px 10px; border: 1px solid #fff" on:click={updateCode}>
+			<span style="color: #fff" class="material-symbols-rounded">play_arrow</span>
 		</button>
 	</div>
 
