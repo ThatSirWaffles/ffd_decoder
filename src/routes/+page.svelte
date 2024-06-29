@@ -153,6 +153,10 @@
 
 
 <div class=container>
+	<div class="modal main">
+		🎉 FFD Decoder is staying for part 2!
+	</div>
+
 	<div class="modal main" on:paste={handlePaste}>
 		<h1 >FFD Decoder</h1>
 		<p style="margin-bottom:40px; margin-top:-20px">Input only the letters in the code <br><span style="font-size: 15px; opacity:0.5">Or paste an image of the code</span></p>
