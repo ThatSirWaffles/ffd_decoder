@@ -83,7 +83,7 @@
 					}
 				}
 
-				result = `The code is ${a.join('')}`;
+				result = `The code is <b>${a.join('')}</b>`;
 				state = "success";
 			} else {
 				result = "Expected characters a to i";
@@ -136,7 +136,7 @@
 								method: 'POST',
 								body: formData
 							});
-							result = `Found codes: ${decryptString((await response.json()).content).join(', ')}`;
+							result = `Found codes: <b>${decryptString((await response.json()).content).join(', ')}</b>`;
 							state = "success";
 							console.log(result);
 						} catch (error) {
@@ -164,13 +164,13 @@
 			</button>
 		</div>
 
-		<p class={state}>{result}</p>
+		<p class={state}>{@html result}</p>
 		<p style="margin-top: 50px"><i>For g, it can be either 0 or 3: the one with the lower numbers around it is 0, and the other one is 3</i></p>
 		<p style="margin-top: 50px; margin-bottom:0px; opacity:0.5"><i>DM bugs/questions to @sirwaffles</i></p>
 	</div>
 
 	<div class="modal warning">
-		<h3>AI image features are experimental</h3>
-		<p>Pasting the image a second time may fix issues, but it is always imperfect.</p>
+		<h3 style="margin-top:0px;">AI image features are experimental</h3>
+		<p style="margin-bottom:0px;">Pasting the image a second time may fix issues, but it is always imperfect</p>
 	</div>
 </div>
