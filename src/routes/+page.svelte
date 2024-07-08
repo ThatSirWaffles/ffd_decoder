@@ -34,6 +34,7 @@
 		background-color: #ffc52721;
 		border: 1px solid #ffc52721;
 		color: #d4a625;
+		box-shadow: 0 2px 20px #d3a01342 !important;
 	}
 
 	.success {
@@ -60,6 +61,8 @@
 </style>
 
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	let result = "";
 	let input = "";
 	let state = "output";
@@ -140,7 +143,7 @@
 							state = "success";
 							console.log(result);
 						} catch (error) {
-							result = "Something went wrong, input manually";
+							result = "Couldn't read your image, input manually or retry";
 							state = "error";
 							console.log(error);
 						}
@@ -149,6 +152,14 @@
 			}
 		}
 	}
+
+	onMount(() => {
+		window.addEventListener('paste', handlePaste);
+
+		return () => {
+		window.removeEventListener('paste', handlePaste);
+		};
+	});
 </script>
 
 
@@ -157,9 +168,9 @@
 		🎉 FFD Decoder is staying for part 2!
 	</div>
 
-	<div class="modal main" on:paste={handlePaste}>
+	<div class="modal main">
 		<h1 >FFD Decoder</h1>
-		<p style="margin-bottom:40px; margin-top:-20px">Input only the letters in the code <br><span style="font-size: 15px; opacity:0.5">Or paste an image of the code</span></p>
+		<p style="margin-bottom:40px; margin-top:-20px">Input only the letters in the code <br><span style="font-size: 15px; opacity:0.5">Or paste a screenshot of the code</span></p>
 		<div style="display: flex; align-items: center; justify-content: center; gap: 5px">
 			<input style="color: #fff; background-color: transparent; font-family: space grotesk; width: 4rem; font-size:15px; height: 30px; border-radius:20px 10px 10px 20px; padding-left: 10px; border: 1px solid #fff" bind:value={input} on:keydown={handleKeyDown}>
 			
@@ -174,7 +185,7 @@
 	</div>
 
 	<div class="modal warning">
-		<h3 style="margin-top:0px;">AI image features are experimental</h3>
-		<p style="margin-bottom:0px;">Pasting the image a second time may fix issues, but it is always imperfect</p>
+		<h3 style="margin-top:0px;margin-bottom:0px;text-shadow: 0 0 15px #d4a625">AI image features are experimental</h3>
+		<p style="margin-bottom: 0px; opacity: 0.8;">Pasting the image a second time may fix issues, but it is always imperfect</p>
 	</div>
 </div>
