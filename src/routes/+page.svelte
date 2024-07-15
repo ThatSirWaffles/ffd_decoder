@@ -135,7 +135,7 @@
 						state = "neutral";
 
 						try {
-							const response = await fetch("https://server.woffl.net/decode", {
+							const response = await fetch("https://ocr.woffl.net/decode", {
 								method: 'POST',
 								body: formData
 							});
